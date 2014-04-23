@@ -91,6 +91,10 @@ class uno{
 		return self::query($table,$conditions,$colums,$order,$limit,$offset)->loadAssocList();
 	}
 	
+	static public function count($table,$conditions=false){
+		self::query($table,$conditions)->execute();
+		return JFactory::getDBO()->getNumRows();
+	}
 	/**
 	 * example uno::getRowBySQL('select * from #__tablename where name='.uno::_('vova')));
 	 */

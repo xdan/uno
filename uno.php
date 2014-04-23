@@ -98,7 +98,7 @@ class uno{
 	
 	static public function countBySql($sql){
 		$db = JFactory::getDBO();
-		$db->setQuery($sql)
+		$db->setQuery($sql);
 		$db->execute();
 		return $db->getNumRows();
 	}

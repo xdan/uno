@@ -43,7 +43,10 @@ class uno{
 			->where($conditions);
 			
 		foreach($array as $key=>$value){
-			$query->set($db->quoteName($key).'="'.$value.'"');
+			if(!is_numeric($key))
+				$query->set($db->quoteName($key).'="'.$value.'"');
+			else
+				$query->set($value);
 		}	
 		 
 		$db->setQuery($query);

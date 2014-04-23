@@ -95,6 +95,14 @@ class uno{
 		self::query($table,$conditions)->execute();
 		return JFactory::getDBO()->getNumRows();
 	}
+	
+	static public function countBySql($sql){
+		$db = JFactory::getDBO();
+		$db->setQuery($sql)
+		$db->execute();
+		return $db->getNumRows();
+	}
+	
 	/**
 	 * example uno::getRowBySQL('select * from #__tablename where name='.uno::_('vova')));
 	 */

@@ -118,8 +118,8 @@ class uno{
 	/**
 	 * example if(uno::exists('tablename','id=5')){};
 	 */
-	static public function exists($table,$conditions,$id='id'){
-		$cnt = self::getRow($table,$conditions,array($id));
+	static public function exists($table,$conditions,$id='id',$order = false,$offset = 0){
+		$cnt = self::getRow($table,$conditions,array($id),$order,1,$offset);
 		return isset($cnt[$id])?$cnt[$id]:false;
 	}
 	
